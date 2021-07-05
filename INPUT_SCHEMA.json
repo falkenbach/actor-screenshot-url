@@ -10,6 +10,22 @@
             "editor": "textfield",
             "prefill": "https://www.apify.com/"
         },
+        "countryCode": {
+            "title": "Country Code",
+            "type": "string",
+            "description": "ISO country code e.g. DE, AT and so on",
+            "editor": "textfield",
+            "default": "US",
+            "minLength": 2,
+            "maxLength": 2
+        },
+        "proxyConfig": {
+          "title": "Proxy configuration",
+          "type": "object",
+          "description": "Use Apify Proxy, you need to have some proxy group to get country-based IP.",
+          "prefill": { "useApifyProxy": true },
+          "editor": "proxy"
+        },
         "waitUntil": {
             "title": "Wait until",
             "type": "string",
