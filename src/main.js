@@ -15,7 +15,7 @@ Apify.main(async () => {
         delay,
         width
     } = await parseInput(input);
-    console.log(input, countryCode, proxyConfig);
+    console.log(input, input.countryCode, proxyConfig);
 
     /*
     const proxyConfiguration = await Apify.createProxyConfiguration({
@@ -24,7 +24,7 @@ Apify.main(async () => {
     });
     */ // <- for new SDK
 
-    const proxyUrl = Apify.getApifyProxyUrl({ groups: proxyConfig.apifyProxyGroups, country: countryCode });
+    const proxyUrl = Apify.getApifyProxyUrl({ groups: proxyConfig.apifyProxyGroups, country: input.countryCode });
     const browserOptions = {
         headless: true,
         proxyUrl,
