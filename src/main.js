@@ -24,7 +24,7 @@ Apify.main(async () => {
     });
     */ // <- for new SDK
 
-    const proxyUrl = Apify.getApifyProxyUrl({ groups: proxyConfig.apifyProxyGroups, country: input.countryCode }); // , countryCode: input.countryCode, apifyCountryCode: input.countryCode
+    const proxyUrl = Apify.getApifyProxyUrl({ groups: proxyConfig.apifyProxyGroups, country: input.countryCode, countryCode: input.countryCode, apifyCountryCode: input.countryCode });
     const browserOptions = {
         headless: true,
         proxyUrl,
