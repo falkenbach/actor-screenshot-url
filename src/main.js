@@ -15,6 +15,7 @@ Apify.main(async () => {
         delay,
         width
     } = await parseInput(input);
+    console.log(input, countryCode, proxyConfig);
 
     /*
     const proxyConfiguration = await Apify.createProxyConfiguration({
@@ -28,7 +29,6 @@ Apify.main(async () => {
         headless: true,
         proxyUrl,
     };
-    console.log(countryCode, proxyConfig);
 
     const browser = await Apify.launchPuppeteer();
 
