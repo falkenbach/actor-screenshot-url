@@ -24,13 +24,13 @@ Apify.main(async () => {
     });
     */ // <- for new SDK
 
-    const proxyUrl = Apify.getApifyProxyUrl({ groups: proxyConfig.apifyProxyGroups, country: input.countryCode, countryCode: input.countryCode, apifyCountryCode: input.countryCode });
+    const proxyUrl = Apify.getApifyProxyUrl({ groups: proxyConfig.apifyProxyGroups, country: input.countryCode }); // , countryCode: input.countryCode, apifyCountryCode: input.countryCode
     const browserOptions = {
         headless: true,
         proxyUrl,
     };
 
-    const browser = await Apify.launchPuppeteer();
+    const browser = await Apify.launchPuppeteer(browserOptions);
 
     console.log('Launching new page');
     const page = await browser.newPage();
