@@ -23,7 +23,7 @@ Apify.main(async () => {
     });
     */ // <- for new SDK
 
-    const proxyUrl = Apify.getApifyProxyUrl({ groups: proxyConfig.apifyProxyGroups, country: countryCode })
+    const proxyUrl = Apify.getApifyProxyUrl({ groups: proxyConfig.apifyProxyGroups, country: countryCode, countryCode })
     console.log('proxyUrl', proxyUrl);
 
     const browser = await Apify.launchPuppeteer({
