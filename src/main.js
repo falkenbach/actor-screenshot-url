@@ -9,15 +9,18 @@ Apify.main(async () => {
     const input = await Apify.getValue('INPUT');
     const { url, countryCode, proxyConfig, waitUntil, delay, width } = await parseInput(input);
 
+    /*
     const proxyConfiguration = await Apify.createProxyConfiguration({
         ...proxyConfig,
         countryCode: 'US'
     });
-    console.log('proxyConfiguration', proxyConfiguration);
+    */ // <- for new SDK
+
+    const proxyUrl = Apify.getApifyProxyUrl({ groups: proxyConfiguration.apifyProxyGroups, country: countryCode })
 
     const browser = await Apify.launchPuppeteer({
         headless: true,
-        proxyConfiguration,
+        proxyUrl,
     });
 
     console.log('Launching new page');
