@@ -23,15 +23,14 @@ Apify.main(async () => {
     });
     */ // <- for new SDK
 
-    const proxyUrl = Apify.getApifyProxyUrl({ groups: proxyConfig.apifyProxyGroups, country: countryCode, countryCode });
+    const proxyUrl = Apify.getApifyProxyUrl({ groups: proxyConfig.apifyProxyGroups, country: countryCode });
     const browserOptions = {
         headless: true,
         proxyUrl,
     };
-    console.log(browserOptions);
+    console.log(countryCode, proxyConfig);
 
     const browser = await Apify.launchPuppeteer();
-    console.log(browser);
 
     console.log('Launching new page');
     const page = await browser.newPage();
